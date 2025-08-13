@@ -2,6 +2,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
+const connectDB = require('./config/db');
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
+connectDB()
 // Start the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
